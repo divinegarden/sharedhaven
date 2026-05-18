@@ -4,6 +4,7 @@ import babel from '@rolldown/plugin-babel'
 import { PrismaClient } from '@prisma/client'
 import fs from 'fs'
 import path from 'path'
+import bcrypt from 'bcryptjs'
 
 const prisma = globalThis.prisma || new PrismaClient()
 if (process.env.NODE_ENV !== 'production') globalThis.prisma = prisma
@@ -15,10 +16,11 @@ async function ensureAdminExists() {
         if (count === 0) {
             console.log('--------------------------------------------------')
             console.log('Database is empty. Seeding default admin user...')
+            const hashedPassword = await bcrypt.hash('admin123', 10)
             await prisma.user.create({
                 data: {
                     name: 'admin',
-                    password: 'admin123',
+                    password: hashedPassword,
                     role: 'ADMIN',
                     image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80',
                     active: true
@@ -73,10 +75,11 @@ export default defineConfig({
                                             res.end(JSON.stringify({ error: 'User already exists' }))
                                             return
                                         }
+                                        const hashedPassword = await bcrypt.hash(data.password, 10)
                                         const newUser = await prisma.user.create({
                                             data: {
                                                 name: data.name,
-                                                password: data.password,
+                                                password: hashedPassword,
                                                 role: data.role || 'USER',
                                                 image: data.image || null,
                                                 active: true
@@ -134,7 +137,30 @@ export default defineConfig({
                                     try {
                                         const { username, password } = JSON.parse(body)
                                         const user = await prisma.user.findUnique({ where: { name: username } })
-                                        if (!user || user.password !== password) {
+                                        if (!user) {
+                                            res.statusCode = 401
+                                            res.end(JSON.stringify({ error: 'Credenciales inválidas / Invalid credentials' }))
+                                            return
+                                        }
+                                        
+                                        let isMatch = false
+                                        // Check if password is already hashed with bcrypt
+                                        if (user.password.startsWith('$2a$') || user.password.startsWith('$2b$')) {
+                                            isMatch = await bcrypt.compare(password, user.password)
+                                        } else {
+                                            // Fallback for old plain text passwords
+                                            isMatch = (user.password === password)
+                                            // Auto-migrate to hashed password if correct
+                                            if (isMatch) {
+                                                const newHash = await bcrypt.hash(password, 10)
+                                                await prisma.user.update({
+                                                    where: { id: user.id },
+                                                    data: { password: newHash }
+                                                })
+                                            }
+                                        }
+
+                                        if (!isMatch) {
                                             res.statusCode = 401
                                             res.end(JSON.stringify({ error: 'Credenciales inválidas / Invalid credentials' }))
                                             return
@@ -172,10 +198,11 @@ export default defineConfig({
                                             res.end(JSON.stringify({ error: 'El usuario ya existe / User already exists' }))
                                             return
                                         }
+                                        const hashedPassword = await bcrypt.hash(password, 10)
                                         const newUser = await prisma.user.create({
                                             data: {
                                                 name: username,
-                                                password: password,
+                                                password: hashedPassword,
                                                 role: 'USER', // Default role is USER for maximum security
                                                 active: true
                                             }
