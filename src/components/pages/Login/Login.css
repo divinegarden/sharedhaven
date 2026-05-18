@@ -9,7 +9,7 @@
 .login form {
     background: var(--barColor);
     background: linear-gradient(180deg, var(--barColor) 0%, transparent 100%);
-    width: 300px;
+
     padding: 50px;
     border: 2px solid var(--barColor);
     border-radius: 60px;
@@ -92,8 +92,8 @@
     }
 
     .login form {
-        width: 100vw;
-        max-width: 100vw;
+        width: 90vw;
+        max-width: 90vw;
         padding: 40px 25px;
         gap: 25px;
         border-radius: 0;
