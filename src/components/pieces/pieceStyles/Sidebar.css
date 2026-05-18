@@ -2,7 +2,7 @@
 
 .sidebar {
     background-color: var(--barColor);
-    width: 280px;
+    width: 320px;
     flex-shrink: 0;
     padding: 30px;
 

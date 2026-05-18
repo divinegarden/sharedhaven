@@ -85,6 +85,15 @@ function Home() {
                             {t('credits_desc')}
                         </p>
                         <div className="home_modal_actions modal_actions">
+                            <a 
+                                href="https://github.com/divinegarden/sharedhaven" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="cancel_btn"
+                                style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}
+                            >
+                                <i className="fa-brands fa-github"></i> GitHub
+                            </a>
                             <button className="home_modal_save_btn save_btn" onClick={() => setCreditsOpen(false)}>
                                 {t('close')}
                             </button>
