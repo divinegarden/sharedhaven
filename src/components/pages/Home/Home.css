@@ -97,6 +97,31 @@
     color: var(--btntextColor);
 }
 
+.github_btn {
+    background-color: #24292e;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 50px;
+    
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    
+    transition: 0.3s ease;
+}
+
+.github_btn:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
 @media (max-width: 768px) {
     .homepage_body .areas {
         flex-direction: column;

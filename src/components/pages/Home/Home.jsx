@@ -89,8 +89,7 @@ function Home() {
                                 href="https://github.com/divinegarden/sharedhaven" 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
-                                className="cancel_btn"
-                                style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}
+                                className="github_btn"
                             >
                                 <i className="fa-brands fa-github"></i> GitHub
                             </a>
