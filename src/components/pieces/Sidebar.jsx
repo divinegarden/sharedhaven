@@ -85,7 +85,7 @@ function Sidebar({ isOpen }) {
             <div className="social">
                 <NavLink 
                     to="/profile" 
-                    title={t('profile')}
+                    data-tooltip={t('profile')}
                     onClick={(e) => {
                         e.preventDefault();
                         setShowUsers(true);
@@ -96,21 +96,21 @@ function Sidebar({ isOpen }) {
                 </NavLink>
                 <NavLink 
                     to="/home" 
-                    title={t('home')}
+                    data-tooltip={t('home')}
                     onClick={() => setShowUsers(false)}
                 >
                     <i className="fa-solid fa-house"></i>
                 </NavLink>
                 <NavLink 
                     to="/favposts" 
-                    title={t('favorites')}
+                    data-tooltip={t('favorites')}
                     onClick={() => setShowUsers(false)}
                 >
                     <i className="fa-solid fa-heart"></i>
                 </NavLink>
                 <NavLink 
                     to="/favmedia" 
-                    title={t('favorites')}
+                    data-tooltip={t('favorites')}
                     onClick={() => setShowUsers(false)}
                 >
                     <i className="fa-solid fa-star"></i>
