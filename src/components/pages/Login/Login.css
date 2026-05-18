@@ -92,11 +92,13 @@
     }
 
     .login form {
-        width: 100%;
-        max-width: 100%;
+        width: 100vw;
+        max-width: 100vw;
         padding: 40px 25px;
         gap: 25px;
-        border-radius: 40px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
     }
 
     .login h1 {
