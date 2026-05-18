@@ -2,7 +2,7 @@
 
 .sidebar {
     background-color: var(--barColor);
-    width: 320px;
+    width: 350px;
     flex-shrink: 0;
     padding: 30px;
 
@@ -148,7 +148,7 @@
 
 .sidebar .online .users {
     width: 100%;
-    max-height: 350px;
+    max-height: 250px;
     overflow-y: auto;
     padding-right: 5px;
 
