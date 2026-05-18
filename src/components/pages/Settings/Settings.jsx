@@ -122,16 +122,20 @@ function Settings() {
     /**
      * Saves the changes made in the modal based on the active field.
      */
-    const handleSave = () => {
-        if (modal.field === "usuario") {
-            updateUser({ name: modal.value });
-            showNotification(t('username_updated'));
-        } else if (modal.field === "correo") {
-            updateUser({ email: modal.value });
-            showNotification(t('email_updated'));
-        } else if (modal.field === "contraseña") {
-            showNotification(t('password_updated'));
-        } else if (modal.field === "imágenes") {
+    const handleSave = async () => {
+        try {
+            if (modal.field === "usuario") {
+                await apiUpdateUserProfile(user.name, { newUsername: modal.value });
+                updateUser({ name: modal.value });
+                showNotification(t('username_updated'));
+            } else if (modal.field === "correo") {
+                await apiUpdateUserProfile(user.name, { email: modal.value });
+                updateUser({ email: modal.value });
+                showNotification(t('email_updated'));
+            } else if (modal.field === "contraseña") {
+                await apiUpdateUserProfile(user.name, { password: modal.value });
+                showNotification(t('password_updated'));
+            } else if (modal.field === "imágenes") {
             apiUpdateUserProfile(user.name, { pfp: modal.value, banner: modal.value2 })
                 .then(updatedUser => {
                     updateUser({ pfp: updatedUser.pfp, banner: updatedUser.banner });
@@ -153,6 +157,10 @@ function Settings() {
                 });
         }
         closeModal();
+        } catch (err) {
+            console.error(`Failed to update ${modal.field}:`, err);
+            alert(`Failed to update ${modal.field}: ${err.message}`);
+        }
     };
 
     return (

@@ -1,4 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { useAuth } from "./auth";
+import { apiUpdateUserProfile } from "../../lib/api";
 
 const LanguageContext = createContext();
 
@@ -238,23 +240,46 @@ const translations = {
 };
 
 export const LanguageProvider = ({ children }) => {
-    const [language, setLanguage] = useState(localStorage.getItem('language') || 'Español');
+    const { user, updateUser } = useAuth();
+    
+    const [language, setLanguage] = useState(() => {
+        return user?.language || localStorage.getItem('language') || 'Español';
+    });
     const languages = ['Español', 'English'];
+
+    // Update local state when user logs in with a saved language
+    useEffect(() => {
+        if (user && user.language && user.language !== language) {
+            setLanguage(user.language);
+        }
+    }, [user?.language]);
 
     useEffect(() => {
         localStorage.setItem('language', language);
     }, [language]);
 
+    const changeLanguage = async (newLanguage) => {
+        setLanguage(newLanguage);
+        if (user) {
+            updateUser({ language: newLanguage });
+            try {
+                await apiUpdateUserProfile(user.name, { language: newLanguage });
+            } catch (e) {
+                console.error("Failed to save language to DB", e);
+            }
+        }
+    };
+
     const nextLanguage = () => {
         const currentIndex = languages.indexOf(language);
         const nextIndex = (currentIndex + 1) % languages.length;
-        setLanguage(languages[nextIndex]);
+        changeLanguage(languages[nextIndex]);
     };
 
     const prevLanguage = () => {
         const currentIndex = languages.indexOf(language);
         const prevIndex = (currentIndex - 1 + languages.length) % languages.length;
-        setLanguage(languages[prevIndex]);
+        changeLanguage(languages[prevIndex]);
     };
 
     const t = (key) => {
@@ -263,7 +288,7 @@ export const LanguageProvider = ({ children }) => {
 
     return (
         <LanguageContext.Provider value={{
-            language, setLanguage, nextLanguage, prevLanguage, t
+            language, setLanguage: changeLanguage, nextLanguage, prevLanguage, t
         }}>
             {children}
         </LanguageContext.Provider>

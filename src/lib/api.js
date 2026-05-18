@@ -173,17 +173,17 @@ export async function apiUploadDownload(downloadData) {
 }
 
 /**
- * Updates the user's profile picture and banner.
+ * Updates the user's profile picture, banner, and other settings.
  * 
- * @param {string} username - The username to update
- * @param {Object} data - { pfp, banner }
+ * @param {string} currentUsername - The username to update
+ * @param {Object} data - { newUsername, pfp, banner, description, email, password, theme, language }
  * @returns {Promise<Object>} The updated user object
  */
-export async function apiUpdateUserProfile(username, { pfp, banner, description }) {
+export async function apiUpdateUserProfile(currentUsername, data) {
     const res = await fetch('/api/users/update', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, pfp, banner, description })
+        body: JSON.stringify({ currentUsername, ...data })
     });
     if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));

@@ -16,6 +16,8 @@ model User {
   image         String?
   banner        String?
   description   String?        @db.Text
+  theme         String?        @default("default")
+  language      String?        @default("Español")
   role          String?        @default("USER") //  ADMIN, USER
   active        Boolean?       @default(true) //  true, fase
   accounts      Account[]

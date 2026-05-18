@@ -87,8 +87,25 @@
 }
 
 @media (max-width: 768px) {
+    .login {
+        padding: 20px;
+    }
+
     .login form {
-        width: 85%;
-        padding: 35px 25px;
+        width: 100%;
+        max-width: 350px;
+        padding: 40px 25px;
+        gap: 25px;
+        border-radius: 40px;
+    }
+
+    .login h1 {
+        font-size: 2.2rem;
+    }
+
+    .login input,
+    .login button {
+        padding: 12px 20px;
+        font-size: 15px;
     }
 }
