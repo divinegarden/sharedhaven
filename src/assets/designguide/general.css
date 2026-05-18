@@ -1,0 +1,352 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Chela+One&family=Chewy&family=Quicksand:wght@300..700&display=swap');
+
+/* General Colors */
+
+:root {
+    /* Body */
+    --bgColor: #d7edfa;
+    --barColor: #e8f7ff;
+
+    --btnColor: #b6e3fc;
+    --btnHoverColor: #95d3f5;
+    --btnBorderColor: #fafafa;
+    --invbtnColor: #fafafa;
+    --invbtnHoverColor: #eeeeee;
+    --invbtnBorderColor: #b6e3fc;
+
+    /* Text */
+    --textColor: #0c223f;
+    --textHoverColor: #203e64;
+    --btntextColor: #fafafa;
+    --btntextHoverColor: #eeeeee;
+    --invbtntextColor: #b6e3fc;
+    --invbtntextHoverColor: #95d3f5;
+    --headersColor: #a4d1e9;
+}
+
+/* Cursors */
+
+* {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-chrome-ccbed8ca-32.webp') 32 32, auto !important;
+}
+
+button:hover,
+a:hover,
+select:hover,
+summary:hover,
+button i:hover,
+button span:hover,
+.optionPicker i:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-chrome-hand-68e4ac8c-32.webp') 39 33, auto !important;
+}
+
+input:hover,
+textarea:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-cherry-text-dd635201-32.webp') 36 41, auto !important;
+}
+
+/* Scrollbar */
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-color: var(--bgColor) var(--barColor);
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--btnColor);
+    border-radius: 10px;
+}
+
+/* Common UI Elements */
+.empty_state_text {
+    color: var(--textColor);
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    padding: 40px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+
+    background-color: var(--bgColor);
+
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--textColor);
+}
+
+main {
+    min-height: 100vh;
+    max-height: 100vh;
+
+    overflow: hidden;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Other Themes */
+
+.dark {
+    /* Body */
+    --bgColor: #121820;
+    --barColor: #1a222c;
+
+    --btnColor: #2c3e50;
+    --btnHoverColor: #34495e;
+    --btnBorderColor: #3d566e;
+    --invbtnColor: #1a222c;
+    --invbtnHoverColor: #2c3e50;
+    --invbtnBorderColor: #2c3e50;
+
+    /* Text */
+    --textColor: #e2e8f0;
+    --textHoverColor: #ffffff;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #e2e8f0;
+    --invbtntextColor: #94a3b8;
+    --invbtntextHoverColor: #e2e8f0;
+    --headersColor: #38bdf8;
+}
+
+.dark * {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-black-7057c7a9-32.webp') 32 32, auto !important;
+}
+
+.dark button:hover,
+.dark a:hover,
+.dark select:hover,
+.dark summary:hover,
+.dark button i:hover,
+.dark button span:hover,
+.dark .optionPicker i:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-black-hand-b9b047ca-32.webp') 39 33, auto !important;
+}
+
+.dark input:hover,
+.dark textarea:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-black-hand-b9b047ca-32.webp') 39 33, auto !important;
+}
+
+.rave {
+    /* Body */
+    --bgColor: #0b0510;
+    --barColor: #160a22;
+
+    --btnColor: #39ff14;
+    --btnHoverColor: #00ff00;
+    --btnBorderColor: #39ff14;
+    --invbtnColor: #160a22;
+    --invbtnHoverColor: #2a1144;
+    --invbtnBorderColor: #bf00ff;
+
+    /* Text */
+    --textColor: #f0f0f0;
+    --textHoverColor: #ffffff;
+    --btntextColor: #0b0510;
+    --btntextHoverColor: #000000;
+    --invbtntextColor: #bf00ff;
+    --invbtntextHoverColor: #e066ff;
+    --headersColor: #00ffff;
+}
+
+.rave * {
+    cursor: url('https://cdn.cursors-4u.net/previews/unborn-8-0-green-link-315858c5-32.webp') 32 32, auto !important;
+}
+
+.rave button:hover,
+.rave a:hover,
+.rave select:hover,
+.rave summary:hover,
+.rave button i:hover,
+.rave button span:hover,
+.rave .optionPicker i:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/unborn-8-0-green-precision-b6498669-32.webp') 41 41, auto !important;
+}
+
+.rave input:hover,
+.rave textarea:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/unborn-8-0-green-handwriting-2f4872e6-32.webp') 32 32, auto !important;
+}
+
+.strawberry {
+    /* Body */
+    --bgColor: #fad7ee;
+    --barColor: #ffe8f5;
+
+    --btnColor: #a0dfad;
+    --btnHoverColor: #7dcc8d;
+    --btnBorderColor: #fafafa;
+    --invbtnColor: #fafafa;
+    --invbtnHoverColor: #eeeeee;
+    --invbtnBorderColor: #a0dfad;
+
+    /* Text */
+    --textColor: #3f0c20;
+    --textHoverColor: #642037;
+    --btntextColor: #fafafa;
+    --btntextHoverColor: #eeeeee;
+    --invbtntextColor: #a0dfad;
+    --invbtntextHoverColor: #7dcc8d;
+    --headersColor: #cc7d97;
+}
+
+.strawberry * {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-cherry-5eda5de9-32.webp') 32 32, auto !important;
+}
+
+.strawberry button:hover,
+.strawberry a:hover,
+.strawberry select:hover,
+.strawberry summary:hover,
+.strawberry button i:hover,
+.strawberry button span:hover,
+.strawberry .optionPicker i:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-cherry-hand-d8d991ef-32.webp') 39 33, auto !important;
+}
+
+.strawberry input:hover,
+.strawberry textarea:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-cherry-pencil-01a380f8-32.webp') 35 51, auto !important;
+}
+
+.sunset {
+    /* Body */
+    --bgColor: #fdf0e6;
+    --barColor: #ffffff;
+
+    --btnColor: #ff7e67;
+    --btnHoverColor: #ff5e40;
+    --btnBorderColor: #ffffff;
+    --invbtnColor: #ffffff;
+    --invbtnHoverColor: #fff0e8;
+    --invbtnBorderColor: #ff7e67;
+
+    /* Text */
+    --textColor: #4a2810;
+    --textHoverColor: #2b1405;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #ffeee6;
+    --invbtntextColor: #ff7e67;
+    --invbtntextHoverColor: #ff5e40;
+    --headersColor: #e04a3f;
+}
+
+.sunset * {
+    cursor: default !important;
+}
+
+.sunset button:hover,
+.sunset a:hover,
+.sunset select:hover,
+.sunset summary:hover,
+.sunset button i:hover,
+.sunset button span:hover,
+.sunset .optionPicker i:hover {
+    cursor: pointer !important;
+}
+
+.sunset input:hover,
+.sunset textarea:hover {
+    cursor: text !important;
+}
+
+.matcha {
+    /* Body */
+    --bgColor: #eef2eb;
+    --barColor: #f7f9f5;
+
+    --btnColor: #a9c298;
+    --btnHoverColor: #8dae76;
+    --btnBorderColor: #fafafa;
+    --invbtnColor: #fafafa;
+    --invbtnHoverColor: #f0f0f0;
+    --invbtnBorderColor: #a9c298;
+
+    /* Text */
+    --textColor: #2c3b24;
+    --textHoverColor: #465c3b;
+    --btntextColor: #fafafa;
+    --btntextHoverColor: #eeeeee;
+    --invbtntextColor: #8dae76;
+    --invbtntextHoverColor: #6e8e58;
+    --headersColor: #8dae76;
+}
+
+.twilight {
+    /* Body */
+    --bgColor: #f0ecfa;
+    --barColor: #f8f6fc;
+
+    --btnColor: #b39cd0;
+    --btnHoverColor: #9374b8;
+    --btnBorderColor: #ffffff;
+    --invbtnColor: #ffffff;
+    --invbtnHoverColor: #f0f0f0;
+    --invbtnBorderColor: #b39cd0;
+
+    /* Text */
+    --textColor: #2a1b38;
+    --textHoverColor: #442c5c;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #f0f0f0;
+    --invbtntextColor: #9374b8;
+    --invbtntextHoverColor: #725299;
+    --headersColor: #9374b8;
+}
+
+.macchiato {
+    /* Body */
+    --bgColor: #fdf6e3;
+    --barColor: #fffdf8;
+
+    --btnColor: #d4a373;
+    --btnHoverColor: #bc8249;
+    --btnBorderColor: #ffffff;
+    --invbtnColor: #ffffff;
+    --invbtnHoverColor: #f3efe6;
+    --invbtnBorderColor: #d4a373;
+
+    /* Text */
+    --textColor: #4a3b32;
+    --textHoverColor: #6b5547;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #f0f0f0;
+    --invbtntextColor: #bc8249;
+    --invbtntextHoverColor: #9e642e;
+    --headersColor: #bc8249;
+}
+
+.synthwave {
+    /* Body */
+    --bgColor: #1a0b2e;
+    --barColor: #251242;
+
+    --btnColor: #f72585;
+    --btnHoverColor: #b5179e;
+    --btnBorderColor: #1a0b2e;
+    --invbtnColor: #3a0ca3;
+    --invbtnHoverColor: #480ca8;
+    --invbtnBorderColor: #f72585;
+
+    /* Text */
+    --textColor: #4cc9f0;
+    --textHoverColor: #4895ef;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #eeeeee;
+    --invbtntextColor: #f72585;
+    --invbtntextHoverColor: #b5179e;
+    --headersColor: #4cc9f0;
+}

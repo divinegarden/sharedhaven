@@ -1,0 +1,469 @@
+/* Panels */
+
+.panel {
+    background-color: var(--invbtnColor);
+    width: 100%;
+    padding: 0px;
+    border-radius: 30px;
+}
+
+.panel .panel_header {
+    background-color: var(--barColor);
+    padding: 15px 20px;
+    border-radius: 30px 30px 0px 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.panel .panel_header .info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.panel .panel_header .info img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50px;
+    box-shadow: 0px 0px 0px 4px var(--btnBorderColor);
+}
+
+.panel .panel_header .info i {
+    font-size: 42px;
+    color: var(--invbtntextColor);
+}
+
+.panel .panel_header .info p {
+    font-family: "Chewy", sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--invbtntextColor);
+}
+
+.panel_body {
+    padding: 30px 40px;
+}
+
+.user_profile .panel_body {
+    padding: 0;
+}
+
+/* Specific Panel Types */
+
+/* User Profile */
+.user_profile .profile_banner {
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    width: 100%;
+    border-radius: 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.user_profile .profile_banner .pfp {
+    margin-bottom: -40px;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 999px;
+    box-shadow: 0px 0px 0px 10px var(--invbtnColor);
+}
+
+.user_profile .profile_info {
+    padding: 60px 40px 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    text-align: center;
+}
+
+.user_profile .profile_info h1 {
+    font-family: "Chewy", sans-serif;
+    font-size: 42px;
+    color: var(--invbtntextColor);
+}
+
+.user_profile .profile_options {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user_profile .profile_options button {
+    background: transparent;
+    border: none;
+
+    color: var(--invbtntextColor);
+    font-size: 42px;
+
+    transition: .5s ease;
+}
+
+.user_profile .profile_options button:hover {
+    color: var(--invbtntextHoverColor);
+    scale: 1.05;
+}
+
+/* Settings */
+.sitesettings .panel_body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.sitesettings .option {
+    background-color: var(--btnColor);
+    width: 45%;
+    padding: 10px;
+    border-radius: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--btntextColor);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sitesettings .option .optionPicker {
+    background-color: var(--invbtnColor);
+    width: 70%;
+    padding: 10px;
+    border-radius: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--textColor);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.usersettings .user {
+    margin-bottom: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.usersettings .user .pfp {
+    width: 120px;
+    height: 120px;
+    border-radius: 999px;
+    box-shadow: 0px 0px 0px 10px var(--invbtnBorderColor);
+}
+
+.usersettings .user .userinfo {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.usersettings .useractions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.usersettings .useractions button {
+    background-color: var(--btnColor);
+    padding: 10px 30px;
+    border: 2px solid var(--btnBorderColor);
+    border-radius: 50px;
+
+    color: var(--btntextColor);
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: .5s ease;
+}
+
+.usersettings .useractions button:hover {
+    background-color: var(--btnHoverColor);
+    scale: 1.02;
+}
+
+/* Post Panel Styles */
+.post {
+    width: calc(50% - 10px);
+    min-width: 350px;
+
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    transition: 0.3s ease;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+}
+
+.post .panel_body {
+    height: 100%;
+    padding: 30px 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.post .panel_body img.post_image {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    max-height: 350px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.post .panel_body p {
+    margin: 0;
+
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--textColor);
+}
+
+.post .post_options {
+    margin-top: 15px;
+    border-top: 1px solid var(--btnBorderColor);
+    padding-top: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post .post_date {
+    font-size: 13px;
+    color: var(--textColor);
+    opacity: 0.6;
+}
+
+.post .post_options button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    opacity: 0.6;
+
+    color: var(--textColor);
+    font-size: 32px;
+
+    transition: .3s ease;
+}
+
+.post .post_options button:hover {
+    opacity: 1;
+    scale: 1.1;
+}
+
+.post .post_options button.liked {
+    color: var(--headersColor);
+    opacity: 1;
+    animation: heartBeat 0.3s ease-in-out;
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 1100px) {
+    .post {
+        width: 100%;
+        min-width: 100%;
+    }
+}
+
+/* Create Post Panel Styles */
+.create_post_panel {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.create_post_panel .panel_body {
+    padding: 25px 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.create_post_panel textarea {
+    background-color: var(--invbtnColor);
+    width: 100%;
+    min-height: 100px;
+    padding: 15px 20px;
+    border-radius: 20px;
+    border: 2px solid var(--btnBorderColor);
+    outline: none;
+
+    color: var(--textColor);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+
+    resize: none;
+    transition: 0.3s ease;
+}
+
+.create_post_panel textarea:focus {
+    border-color: var(--btnColor);
+}
+
+.create_post_panel .post_actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.create_post_panel .image_input_container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.create_post_panel .image_input_container i {
+    font-size: 20px;
+    color: var(--headersColor);
+}
+
+.create_post_panel .image_input_container input {
+    background-color: var(--invbtnColor);
+    padding: 8px 15px;
+    border-radius: 50px;
+    border: 2px solid var(--btnBorderColor);
+    outline: none;
+
+    color: var(--textColor);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+
+    width: 100%;
+    max-width: 350px;
+    transition: 0.3s ease;
+}
+
+.create_post_panel .image_input_container input:focus {
+    border-color: var(--btnColor);
+}
+
+.create_post_panel button.submit_btn {
+    background-color: var(--btnColor);
+    padding: 10px 30px;
+    border: 2px solid var(--btnBorderColor);
+    border-radius: 50px;
+
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--btntextColor);
+
+    transition: 0.3s ease;
+}
+
+.create_post_panel button.submit_btn:hover {
+    background-color: var(--btnHoverColor);
+    scale: 1.05;
+}
+
+@media (max-width: 768px) {
+
+    /* Panels become full-width on mobile */
+    .panel_body {
+        padding: 20px;
+    }
+
+    /* User settings — stack pfp above info */
+    .usersettings .user {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .usersettings .user .userinfo {
+        width: 100%;
+    }
+
+    /* User action buttons — wrap onto multiple lines */
+    .usersettings .useractions {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .usersettings .useractions button {
+        flex: 1 1 calc(50% - 10px);
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    /* Site settings — stack vertically */
+    .sitesettings .panel_body {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sitesettings .option {
+        width: 100%;
+    }
+
+    /* Post panels full-width on mobile */
+    .post {
+        width: 100%;
+        min-width: unset;
+    }
+
+    /* Create post actions — stack */
+    .create_post_panel .post_actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .create_post_panel .image_input_container input {
+        max-width: 100%;
+    }
+
+    .create_post_panel button.submit_btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Profile panel */
+    .user_profile .profile_info {
+        padding: 50px 20px 20px;
+    }
+
+    .user_profile .profile_info h1 {
+        font-size: 32px;
+    }
+}

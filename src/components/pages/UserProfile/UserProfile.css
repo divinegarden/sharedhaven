@@ -1,0 +1,95 @@
+.profile_loading_text,
+.profile_not_found_text {
+    opacity: 0.6;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.profile_loading_text {
+    padding: 50px;
+}
+
+.profile_not_found_text {
+    padding: 30px;
+}
+
+.profile_return_home {
+    display: block;
+
+    text-align: center;
+    color: var(--btnColor);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.profile_section_title {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-family: 'Chewy', cursive;
+    font-size: 24px;
+    color: var(--headersColor);
+}
+
+.profile_post_image {
+    object-fit: cover;
+    width: 100%;
+    max-height: 400px;
+
+    margin-top: 10px;
+    border-radius: 15px;
+}
+
+.profile_post_text {
+    margin: 15px 0;
+
+    font-size: 15px;
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.6;
+    color: var(--textColor);
+}
+
+.profile_post_options {
+    padding-top: 10px;
+    border-top: 2px solid var(--btnBorderColor);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 12px;
+
+    opacity: 0.6;
+}
+
+.profile_no_posts {
+    background: var(--barColor);
+    padding: 40px;
+    border-radius: 30px;
+    border: 3px solid var(--btnBorderColor);
+
+    text-align: center;
+
+    opacity: 0.6;
+}
+
+.profile_no_posts i {
+    margin-bottom: 10px;
+
+    display: block;
+
+    font-size: 40px;
+    color: var(--btnColor);
+}
+
+.profile_no_posts p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    margin: 0;
+}

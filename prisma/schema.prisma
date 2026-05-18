@@ -1,0 +1,99 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(cuid())
+  name          String         @unique
+  email         String?        @unique
+  password      String?
+  emailVerified DateTime?
+  image         String?
+  banner        String?
+  description   String?        @db.Text
+  role          String?        @default("USER") //  ADMIN, USER
+  active        Boolean?       @default(true) //  true, fase
+  accounts      Account[]
+  posts         Post[]
+  downloads     DownloadItem[]
+  likedPosts    Post[]          @relation("UserLikedPosts")
+  likedMedia    FavoriteMedia[]
+  agendaEvents  AgendaEvent[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  text      String?  @db.Text
+  images    String[]
+  isAnnouncement Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  likedBy   User[]   @relation("UserLikedPosts")
+}
+
+model DownloadItem {
+  id          String   @id @default(cuid())
+  title       String
+  description String?  @db.Text
+  fileUrl     String
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model FavoriteMedia {
+  id         String   @id @default(cuid())
+  externalId String
+  type       String   // "game" or "movie"
+  title      String
+  image      String?
+  developer  String?
+  genre      String?
+  createdAt  DateTime @default(now())
+
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, externalId])
+}
+
+model AgendaEvent {
+  id          String   @id @default(cuid())
+  title       String
+  description String?  @db.Text
+  date        String   // Storing as string for simplicity (e.g., "2026-05-20")
+  time        String?  // e.g., "18:00"
+  createdAt   DateTime @default(now())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

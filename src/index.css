@@ -1,0 +1,601 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Chela+One&family=Chewy&family=Quicksand:wght@300..700&display=swap');
+
+/* General Colors */
+
+:root {
+    /* Body */
+    --bgColor: #d7edfa;
+    --barColor: #e8f7ff;
+
+    --btnColor: #b6e3fc;
+    --btnHoverColor: #95d3f5;
+    --btnBorderColor: #fafafa;
+    --invbtnColor: #fafafa;
+    --invbtnHoverColor: #eeeeee;
+    --invbtnBorderColor: #b6e3fc;
+
+    /* Text */
+    --textColor: #0c223f;
+    --textHoverColor: #203e64;
+    --btntextColor: #fafafa;
+    --btntextHoverColor: #eeeeee;
+    --invbtntextColor: #b6e3fc;
+    --invbtntextHoverColor: #95d3f5;
+    --headersColor: #a4d1e9;
+}
+
+/* Cursors */
+
+* {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-chrome-ccbed8ca-32.webp') 32 32, auto !important;
+}
+
+button:hover,
+a:hover,
+select:hover,
+summary:hover,
+button i:hover,
+button span:hover,
+.optionPicker i:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-chrome-hand-68e4ac8c-32.webp') 39 33, auto !important;
+}
+
+input:hover,
+textarea:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-chrome-pencil-a0cc1340-32.webp') 35 51, auto !important;
+}
+
+/* Scrollbar */
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-color: var(--bgColor) var(--barColor);
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+
+    background-color: var(--bgColor);
+
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--textColor);
+}
+
+main {
+    min-height: 100vh;
+    max-height: 100vh;
+
+    overflow: hidden;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Other Themes */
+
+.dark {
+    /* Body */
+    --bgColor: #121820;
+    --barColor: #1a222c;
+
+    --btnColor: #2c3e50;
+    --btnHoverColor: #34495e;
+    --btnBorderColor: #3d566e;
+    --invbtnColor: #1a222c;
+    --invbtnHoverColor: #2c3e50;
+    --invbtnBorderColor: #2c3e50;
+
+    /* Text */
+    --textColor: #e2e8f0;
+    --textHoverColor: #ffffff;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #e2e8f0;
+    --invbtntextColor: #94a3b8;
+    --invbtntextHoverColor: #e2e8f0;
+    --headersColor: #38bdf8;
+}
+
+.dark * {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-black-7057c7a9-32.webp') 32 32, auto !important;
+}
+
+.dark button:hover,
+.dark a:hover,
+.dark select:hover,
+.dark summary:hover,
+.dark button i:hover,
+.dark button span:hover,
+.dark .optionPicker i:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-black-hand-b9b047ca-32.webp') 39 33, auto !important;
+}
+
+.dark input:hover,
+.dark textarea:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-black-hand-b9b047ca-32.webp') 39 33, auto !important;
+}
+
+.rave {
+    /* Body */
+    --bgColor: #0b0510;
+    --barColor: #160a22;
+
+    --btnColor: #39ff14;
+    --btnHoverColor: #00ff00;
+    --btnBorderColor: #39ff14;
+    --invbtnColor: #160a22;
+    --invbtnHoverColor: #2a1144;
+    --invbtnBorderColor: #bf00ff;
+
+    /* Text */
+    --textColor: #f0f0f0;
+    --textHoverColor: #ffffff;
+    --btntextColor: #0b0510;
+    --btntextHoverColor: #000000;
+    --invbtntextColor: #bf00ff;
+    --invbtntextHoverColor: #e066ff;
+    --headersColor: #00ffff;
+}
+
+.rave * {
+    cursor: url('https://cdn.cursors-4u.net/previews/unborn-8-0-green-link-315858c5-32.webp') 32 32, auto !important;
+}
+
+.rave button:hover,
+.rave a:hover,
+.rave select:hover,
+.rave summary:hover,
+.rave button i:hover,
+.rave button span:hover,
+.rave .optionPicker i:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/unborn-8-0-green-precision-b6498669-32.webp') 41 41, auto !important;
+}
+
+.rave input:hover,
+.rave textarea:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/unborn-8-0-green-handwriting-2f4872e6-32.webp') 32 32, auto !important;
+}
+
+.strawberry {
+    /* Body */
+    --bgColor: #fad7ee;
+    --barColor: #ffe8f5;
+
+    --btnColor: #a0dfad;
+    --btnHoverColor: #7dcc8d;
+    --btnBorderColor: #fafafa;
+    --invbtnColor: #fafafa;
+    --invbtnHoverColor: #eeeeee;
+    --invbtnBorderColor: #a0dfad;
+
+    /* Text */
+    --textColor: #3f0c20;
+    --textHoverColor: #642037;
+    --btntextColor: #fafafa;
+    --btntextHoverColor: #eeeeee;
+    --invbtntextColor: #a0dfad;
+    --invbtntextHoverColor: #7dcc8d;
+    --headersColor: #cc7d97;
+}
+
+.strawberry * {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-cherry-5eda5de9-32.webp') 32 32, auto !important;
+}
+
+.strawberry button:hover,
+.strawberry a:hover,
+.strawberry select:hover,
+.strawberry summary:hover,
+.strawberry button i:hover,
+.strawberry button span:hover,
+.strawberry .optionPicker i:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-cherry-hand-d8d991ef-32.webp') 39 33, auto !important;
+}
+
+.strawberry input:hover,
+.strawberry textarea:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/oxygen-cherry-pencil-01a380f8-32.webp') 35 51, auto !important;
+}
+
+.sunset {
+    /* Body */
+    --bgColor: #fdf0e6;
+    --barColor: #ffffff;
+
+    --btnColor: #ff7e67;
+    --btnHoverColor: #ff5e40;
+    --btnBorderColor: #ffffff;
+    --invbtnColor: #ffffff;
+    --invbtnHoverColor: #fff0e8;
+    --invbtnBorderColor: #ff7e67;
+
+    /* Text */
+    --textColor: #4a2810;
+    --textHoverColor: #2b1405;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #ffeee6;
+    --invbtntextColor: #ff7e67;
+    --invbtntextHoverColor: #ff5e40;
+    --headersColor: #e04a3f;
+}
+
+.sunset * {
+    cursor: url('https://cdn.cursors-4u.net/previews/pointer-beb596b0-64.webp') 18 18, auto !important;
+}
+
+.sunset button:hover,
+.sunset a:hover,
+.sunset select:hover,
+.sunset summary:hover,
+.sunset button i:hover,
+.sunset button span:hover,
+.sunset .optionPicker i:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/link-db126d89.webp') 18 18, auto !important;
+}
+
+.sunset input:hover,
+.sunset textarea:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/text-9b753edd.webp') 25 35, text !important;
+}
+
+.matcha {
+    /* Body */
+    --bgColor: #eef2eb;
+    --barColor: #f7f9f5;
+
+    --btnColor: #a9c298;
+    --btnHoverColor: #8dae76;
+    --btnBorderColor: #fafafa;
+    --invbtnColor: #fafafa;
+    --invbtnHoverColor: #f0f0f0;
+    --invbtnBorderColor: #a9c298;
+
+    /* Text */
+    --textColor: #2c3b24;
+    --textHoverColor: #465c3b;
+    --btntextColor: #fafafa;
+    --btntextHoverColor: #eeeeee;
+    --invbtntextColor: #8dae76;
+    --invbtntextHoverColor: #6e8e58;
+    --headersColor: #8dae76;
+}
+
+.twilight {
+    /* Body */
+    --bgColor: #f0ecfa;
+    --barColor: #f8f6fc;
+
+    --btnColor: #b39cd0;
+    --btnHoverColor: #9374b8;
+    --btnBorderColor: #ffffff;
+    --invbtnColor: #ffffff;
+    --invbtnHoverColor: #f0f0f0;
+    --invbtnBorderColor: #b39cd0;
+
+    /* Text */
+    --textColor: #2a1b38;
+    --textHoverColor: #442c5c;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #f0f0f0;
+    --invbtntextColor: #9374b8;
+    --invbtntextHoverColor: #725299;
+    --headersColor: #9374b8;
+}
+
+.macchiato {
+    /* Body */
+    --bgColor: #fdf6e3;
+    --barColor: #fffdf8;
+
+    --btnColor: #d4a373;
+    --btnHoverColor: #bc8249;
+    --btnBorderColor: #ffffff;
+    --invbtnColor: #ffffff;
+    --invbtnHoverColor: #f3efe6;
+    --invbtnBorderColor: #d4a373;
+
+    /* Text */
+    --textColor: #4a3b32;
+    --textHoverColor: #6b5547;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #f0f0f0;
+    --invbtntextColor: #bc8249;
+    --invbtntextHoverColor: #9e642e;
+    --headersColor: #bc8249;
+}
+
+.synthwave {
+    /* Body */
+    --bgColor: #1a0b2e;
+    --barColor: #251242;
+
+    --btnColor: #f72585;
+    --btnHoverColor: #b5179e;
+    --btnBorderColor: #1a0b2e;
+    --invbtnColor: #3a0ca3;
+    --invbtnHoverColor: #480ca8;
+    --invbtnBorderColor: #f72585;
+
+    /* Text */
+    --textColor: #4cc9f0;
+    --textHoverColor: #4895ef;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #eeeeee;
+    --invbtntextColor: #f72585;
+    --invbtntextHoverColor: #b5179e;
+    --headersColor: #4cc9f0;
+}
+
+.sakura {
+    --bgColor: #fff0f5;
+    --barColor: #ffe4e1;
+    --btnColor: #ffb7c5;
+    --btnHoverColor: #ff99aa;
+    --btnBorderColor: #ffffff;
+    --invbtnColor: #ffffff;
+    --invbtnHoverColor: #fff0f5;
+    --invbtnBorderColor: #ffb7c5;
+    --textColor: #4a2c2c;
+    --textHoverColor: #704242;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #ffe4e1;
+    --invbtntextColor: #ff99aa;
+    --invbtntextHoverColor: #ff7788;
+    --headersColor: #ff99aa;
+}
+
+.nord {
+    --bgColor: #2e3440;
+    --barColor: #3b4252;
+    --btnColor: #88c0d0;
+    --btnHoverColor: #81a1c1;
+    --btnBorderColor: #4c566a;
+    --invbtnColor: #434c5e;
+    --invbtnHoverColor: #4c566a;
+    --invbtnBorderColor: #88c0d0;
+    --textColor: #eceff4;
+    --textHoverColor: #ffffff;
+    --btntextColor: #2e3440;
+    --btntextHoverColor: #3b4252;
+    --invbtntextColor: #8fbcbb;
+    --invbtntextHoverColor: #88c0d0;
+    --headersColor: #81a1c1;
+}
+
+.honey {
+    --bgColor: #fefae0;
+    --barColor: #f9f1c2;
+    --btnColor: #dda15e;
+    --btnHoverColor: #bc6c25;
+    --btnBorderColor: #ffffff;
+    --invbtnColor: #ffffff;
+    --invbtnHoverColor: #fefae0;
+    --invbtnBorderColor: #dda15e;
+    --textColor: #283618;
+    --textHoverColor: #606c38;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #fefae0;
+    --invbtntextColor: #bc6c25;
+    --invbtntextHoverColor: #dda15e;
+    --headersColor: #bc6c25;
+}
+
+.honey * {
+    cursor: url('https://cdn.cursors-4u.net/previews/pointer-beb596b0-64.webp') 18 18, auto !important;
+}
+
+.honey button:hover,
+.honey a:hover,
+.honey select:hover,
+.honey summary:hover,
+.honey button i:hover,
+.honey button span:hover,
+.honey .optionPicker i:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/link-db126d89.webp') 18 18, auto !important;
+}
+
+.honey input:hover,
+.honey textarea:hover {
+    cursor: url('https://cdn.cursors-4u.net/previews/text-9b753edd.webp') 25 35, text !important;
+}
+
+.cyberpunk {
+    --bgColor: #000000;
+    --barColor: #1a1a1a;
+    --btnColor: #fcee0a;
+    --btnHoverColor: #d4c700;
+    --btnBorderColor: #00f0ff;
+    --invbtnColor: #000000;
+    --invbtnHoverColor: #1a1a1a;
+    --invbtnBorderColor: #ff003c;
+    --textColor: #00f0ff;
+    --textHoverColor: #ffffff;
+    --btntextColor: #000000;
+    --btntextHoverColor: #1a1a1a;
+    --invbtntextColor: #ff003c;
+    --invbtntextHoverColor: #ff4d6d;
+    --headersColor: #fcee0a;
+}
+
+
+.rose {
+    --bgColor: #4a0e0e;
+    --barColor: #5c1a1a;
+    --btnColor: #e63946;
+    --btnHoverColor: #d62828;
+    --btnBorderColor: #f1faee;
+    --invbtnColor: #5c1a1a;
+    --invbtnHoverColor: #7a2a2a;
+    --invbtnBorderColor: #e63946;
+    --textColor: #f1faee;
+    --textHoverColor: #ffffff;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #f1faee;
+    --invbtntextColor: #e63946;
+    --invbtntextHoverColor: #ff4d5a;
+    --headersColor: #e63946;
+}
+
+.oceanic {
+    --bgColor: #001219;
+    --barColor: #001d29;
+    --btnColor: #005f73;
+    --btnHoverColor: #0a9396;
+    --btnBorderColor: #94d2bd;
+    --invbtnColor: #001d29;
+    --invbtnHoverColor: #002d3d;
+    --invbtnBorderColor: #0a9396;
+    --textColor: #e9d8a6;
+    --textHoverColor: #ee9b00;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #e9d8a6;
+    --invbtntextColor: #0a9396;
+    --invbtntextHoverColor: #94d2bd;
+    --headersColor: #0a9396;
+}
+
+.amethyst {
+    --bgColor: #240046;
+    --barColor: #3c096c;
+    --btnColor: #7b2cbf;
+    --btnHoverColor: #9d4edd;
+    --btnBorderColor: #c77dff;
+    --invbtnColor: #3c096c;
+    --invbtnHoverColor: #5a189a;
+    --invbtnBorderColor: #7b2cbf;
+    --textColor: #e0aaff;
+    --textHoverColor: #ffffff;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #e0aaff;
+    --invbtntextColor: #c77dff;
+    --invbtntextHoverColor: #e0aaff;
+    --headersColor: #9d4edd;
+}
+
+.lavender {
+    --bgColor: #f3e5f5;
+    --barColor: #e1bee7;
+    --btnColor: #9575cd;
+    --btnHoverColor: #7e57c2;
+    --btnBorderColor: #ffffff;
+    --invbtnColor: #ffffff;
+    --invbtnHoverColor: #f3e5f5;
+    --invbtnBorderColor: #9575cd;
+    --textColor: #4527a0;
+    --textHoverColor: #5e35b1;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #f3e5f5;
+    --invbtntextColor: #7e57c2;
+    --invbtntextHoverColor: #9575cd;
+    --headersColor: #7e57c2;
+}
+
+.cottagecore {
+    --bgColor: #fdf5e6;
+    --barColor: #e6ccb2;
+    --btnColor: #7f5539;
+    --btnHoverColor: #9c6644;
+    --btnBorderColor: #ede0d4;
+    --invbtnColor: #ede0d4;
+    --invbtnHoverColor: #fdf5e6;
+    --invbtnBorderColor: #7f5539;
+    --textColor: #2c1b0e;
+    --textHoverColor: #4a3b22;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #fdf5e6;
+    --invbtntextColor: #7f5539;
+    --invbtntextHoverColor: #9c6644;
+    --headersColor: #606c38;
+}
+
+.pixie {
+    --bgColor: #fef1ff;
+    --barColor: #ffd6ff;
+    --btnColor: #bdb2ff;
+    --btnHoverColor: #a0c4ff;
+    --btnBorderColor: #ffffff;
+    --invbtnColor: #ffffff;
+    --invbtnHoverColor: #fef1ff;
+    --invbtnBorderColor: #bdb2ff;
+    --textColor: #540d6e;
+    --textHoverColor: #ee4266;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #ffd6ff;
+    --invbtntextColor: #bdb2ff;
+    --invbtntextHoverColor: #9bf6ff;
+    --headersColor: #ee4266;
+}
+
+.mocha {
+    --bgColor: #2b2118;
+    --barColor: #3d2b1f;
+    --btnColor: #d4a373;
+    --btnHoverColor: #bc8249;
+    --btnBorderColor: #582f0e;
+    --invbtnColor: #3d2b1f;
+    --invbtnHoverColor: #582f0e;
+    --invbtnBorderColor: #d4a373;
+    --textColor: #faedcd;
+    --textHoverColor: #ffffff;
+    --btntextColor: #2b2118;
+    --btntextHoverColor: #3d2b1f;
+    --invbtntextColor: #d4a373;
+    --invbtntextHoverColor: #e9edc9;
+    --headersColor: #d4a373;
+}
+
+.vintage {
+    --bgColor: #d8c3a5;
+    --barColor: #eae7dc;
+    --btnColor: #8e8d8a;
+    --btnHoverColor: #e85a4f;
+    --btnBorderColor: #ffffff;
+    --invbtnColor: #ffffff;
+    --invbtnHoverColor: #eae7dc;
+    --invbtnBorderColor: #8e8d8a;
+    --textColor: #474747;
+    --textHoverColor: #e98074;
+    --btntextColor: #ffffff;
+    --btntextHoverColor: #eae7dc;
+    --invbtntextColor: #e85a4f;
+    --invbtntextHoverColor: #e98074;
+    --headersColor: #e85a4f;
+}
+
+/* Global Notification Styles */
+.status_notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--btnColor);
+    color: var(--btntextColor);
+    padding: 15px 30px;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 3000;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

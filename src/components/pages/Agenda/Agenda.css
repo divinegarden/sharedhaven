@@ -1,0 +1,154 @@
+.agenda_container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.create_event_form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.create_event_form input,
+.create_event_form textarea {
+    background-color: var(--invbtnColor);
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid var(--btnBorderColor);
+
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    color: var(--textColor);
+}
+
+.create_event_form .form_row {
+    display: flex;
+    gap: 15px;
+}
+
+.create_event_form .form_row input {
+    flex: 1;
+}
+
+.create_event_form button {
+    background-color: var(--btnColor);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+
+    align-self: flex-end;
+
+
+
+    font-family: 'Chewy', cursive;
+    font-size: 18px;
+    color: var(--btntextColor);
+
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.create_event_form button:hover {
+    transform: scale(1.05);
+}
+
+.agenda_list {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event_card {
+    background-color: var(--barColor);
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid var(--btnBorderColor);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.event_info h3 {
+    margin: 0 0 5px 0;
+
+    font-family: 'Chewy', cursive;
+    font-size: 22px;
+    color: var(--headersColor);
+}
+
+.event_info p {
+    margin: 0;
+
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    color: var(--textColor);
+
+    opacity: 0.8;
+}
+
+.event_date_time {
+    text-align: right;
+}
+
+.event_date_time .date {
+    font-family: 'Chewy', cursive;
+    font-size: 18px;
+    color: var(--btnColor);
+
+    display: block;
+}
+
+.event_date_time .time {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    color: var(--textColor);
+
+    opacity: 0.6;
+}
+
+.event_creator {
+    margin-top: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.event_creator img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .event_card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .event_date_time {
+        text-align: left;
+    }
+
+    .create_event_form .form_row {
+        flex-direction: column;
+    }
+
+    .create_event_form button {
+        align-self: stretch;
+        text-align: center;
+    }
+}

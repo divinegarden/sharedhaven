@@ -1,0 +1,665 @@
+.home {
+    display: flex;
+}
+
+/* Sidebar */
+
+.home .sidebar {
+    background-color: var(--barColor);
+    width: 35%;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 55px;
+
+}
+
+.home .sidebar .pfp {
+    width: 50%;
+    border-radius: 999px;
+
+    box-shadow: 0px 0px 0px 10px var(--btnBorderColor);
+}
+
+.home .sidebar .pages {
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.home .sidebar .social {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.home .sidebar h2 {
+    font-family: "Chela One", sans-serif;
+    font-size: 30px;
+    color: var(--btnColor);
+}
+
+.home .sidebar .pages a,
+.home .sidebar .social a {
+    font-family: "Quicksand", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: none;
+
+    transition: .5s ease;
+}
+
+.home .sidebar .pages a:hover,
+.home .sidebar .social a:hover {
+    scale: 1.02;
+    transform: translateY(-5px);
+}
+
+.home .sidebar .pages a {
+    width: 100%;
+
+    background-color: var(--btnColor);
+    padding: 10px 25px;
+    border: 2px solid var(--btnBorderColor);
+    border-radius: 50px;
+    outline: none;
+
+    text-align: left;
+    color: var(--btntextColor);
+}
+
+.home .sidebar .pages button span {
+    max-width: 200px;
+    opacity: 0;
+    overflow: hidden;
+
+    transition: .5s ease;
+}
+
+.home .sidebar .pages a:hover span {
+    max-width: fit-content;
+    margin-left: 5px;
+    opacity: 1;
+    overflow: hidden;
+}
+
+.home .sidebar .pages a:hover {
+    background-color: var(--btnHoverColor);
+    font-weight: 700;
+}
+
+.home .sidebar .social a {
+    background-color: var(--invbtnColor);
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    box-shadow: 0px 10px 10px var(--bgColor);
+
+    color: var(--invbtntextColor)
+}
+
+.home .sidebar .social a:hover {
+    box-shadow: 0px 15px 10px var(--bgColor);
+    color: var(--invbtntextHoverColor);
+}
+
+/* User toggle */
+
+.home .sidebar .online {
+    width: 70%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.home .sidebar .online .users {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.home .sidebar .online .user {
+    background-color: var(--invbtnColor);
+    width: 100%;
+    padding: 5px;
+    border-radius: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--invbtntextColor);
+    font-weight: 500;
+
+    transition: .5s ease;
+}
+
+.home .sidebar .online .user:hover {
+    background-color: var(--invbtnHoverColor);
+    color: var(--invbtntextHoverColor);
+    font-weight: 700;
+    scale: 1.02;
+}
+
+.home .sidebar .online hr {
+    width: 70%;
+    border-radius: 10px;
+    border: 1px solid var(--btnBorderColor);
+}
+
+.home .sidebar .online .user img {
+    width: 40px;
+    border-radius: 50px
+}
+
+/* Rest of body */
+
+.homepage {
+    width: 100%;
+
+    overflow-y: scroll;
+}
+
+.homepage header {
+    padding: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-family: "Chela One", sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--btntextColor);
+}
+
+.homepage .homepage_body {
+    width: 100%;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.homepage .homepage_body h2 {
+    color: var(--btnHoverColor);
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.homepage .homepage_body .areas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.homepage .homepage_body .areas button {
+    background-color: var(--btnColor);
+    padding: 10px 65px;
+    border: 2px solid var(--btnBorderColor);
+    border-radius: 50px;
+    outline: none;
+
+    font-family: "Quicksand", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--btntextColor);
+
+    transition: .5s ease;
+}
+
+.homepage .homepage_body .areas button:hover {
+    background-color: var(--btnHoverColor);
+    color: var(--btntextHoverColor);
+    font-weight: 700;
+    scale: 1.02;
+}
+
+/* Game thingie */
+
+.game_movie {
+    background-color: var(--invbtnColor);
+    width: 100%;
+    padding: 35px;
+    border-radius: 35px;
+}
+
+.game_movie .info {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeJQeJyzgAzTEVqXiGe90RGBFhfp_4RcJJMQ&s');
+    background-size: contain;
+    height: 350px;
+    padding: 20px 0px 0px 35px;
+    border-radius: 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.game_movie .info .type {
+    background-color: var(--btnColor);
+    padding: 10px 60px;
+    margin: 0px 20px;
+    border-radius: 50px;
+
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--btntextColor);
+}
+
+.game_movie .info .details {
+    background-color: var(--invbtnColor);
+    width: 75%;
+    padding: 15px 0px 0px 35px;
+    border-radius: 35px 0px 0px 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.game_movie .info .name h1 {
+    font-family: "Chewy", sans-serif;
+    font-size: 42px;
+    color: var(--invbtntextColor);
+}
+
+.game_movie .info button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    color: var(--invbtntextColor);
+    font-size: 42px;
+
+    transition: .5s ease;
+}
+
+.game_movie .info button:hover {
+    color: var(--invbtntextHoverColor);
+    scale: 1.05;
+}
+
+/* Panels */
+
+.panel {
+    background-color: var(--invbtnColor);
+    width: 100%;
+    padding: 0px;
+    border-radius: 30px;
+}
+
+.panel .panel_header {
+    background-color: var(--barColor);
+    padding: 15px 20px;
+    border-radius: 30px 30px 0px 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.panel .panel_header .info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.panel .panel_header .info img {
+    width: 50px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 0px 4px var(--btnBorderColor);
+}
+
+.panel .panel_header .info i {
+    font-size: 42px;
+    color: var(--invbtntextColor);
+}
+
+.panel .panel_header .info p {
+    font-family: "Chewy", sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--invbtntextColor);
+}
+
+/* Posts */
+
+.post .panel_body {
+    padding: 30px 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post .panel_body img {
+    width: 100%;
+    border-radius: 35px;
+}
+
+.post .panel_body .panel_options {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.post .panel_body {
+    padding: 30px 40px;
+}
+
+.post .panel_body .post_options button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    color: var(--invbtntextColor);
+    font-size: 42px;
+
+
+    transition: .5s ease;
+}
+
+.post .panel_body .post_options button:hover {
+    color: var(--invbtntextHoverColor);
+    scale: 1.05;
+}
+
+/* User Profile */
+.user_profile .panel_body {
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user_profile .profile_banner {
+    background: url("https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png");
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    width: 100%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.user_profile .profile_banner .pfp {
+    margin-bottom: -40px;
+
+    width: 15%;
+    border-radius: 999px;
+    box-shadow: 0px 0px 0px 10px var(--invbtnBorderColor);
+}
+
+.user_profile .profile_info {
+    padding: 30px 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.user_profile .profile_info h1 {
+    font-family: "Chewy", sans-serif;
+    font-size: 42px;
+    color: var(--invbtntextColor);
+}
+
+.user_profile .profile_info .profile_options {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.user_profile .profile_info .profile_options button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    color: var(--invbtntextColor);
+    font-size: 42px;
+
+
+    transition: .5s ease;
+}
+
+.user_profile .profile_info .profile_options button:hover {
+    color: var(--invbtntextHoverColor);
+    scale: 1.05;
+}
+
+/* Settings */
+
+.sitesettings .panel_body {
+    padding: 30px 40px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sitesettings .option {
+    background-color: var(--btnColor);
+    width: 40%;
+    padding: 10px;
+    border-radius: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--btntextColor);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sitesettings .option .optionPicker {
+    background-color: var(--invbtnColor);
+    width: 70%;
+    padding: 10px;
+    border-radius: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--textColor);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.sitesettings .option .optionPicker i {
+    transition: .5s ease;
+}
+
+.sitesettings .option .optionPicker i:hover {
+    color: var(--btnHoverColor);
+}
+
+.usersettings .panel_body {
+    padding: 30px 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.usersettings .user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.usersettings .user .pfp {
+    width: 15%;
+    border-radius: 999px;
+    box-shadow: 0px 0px 0px 10px var(--invbtnBorderColor);
+}
+
+.usersettings .user .userinfo {
+    width: 80%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.usersettings .user h2 {
+    font-family: "Chela One", sans-serif;
+    font-size: 46px;
+}
+
+.usersettings .useractions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.usersettings .useractions button {
+    background-color: var(--btnColor);
+    padding: 10px 65px;
+    border: 2px solid var(--btnBorderColor);
+    border-radius: 50px;
+    outline: none;
+
+    font-family: "Quicksand", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--btntextColor);
+
+    transition: .5s ease;
+}
+
+.usersettings .useractions button:hover {
+    background-color: var(--btnHoverColor);
+    scale: 1.02;
+}
+
+/* /////////////////////////////////////////////////////////
+   Mobile Responsiveness (Under 768px)
+   ///////////////////////////////////////////////////////// */
+@media screen and (max-width: 768px) {
+
+    /* Sidebar / Adjust Homepage */
+    .home {
+        flex-direction: column;
+    }
+
+    .home .sidebar {
+        display: none;
+        /* In a real app, you'd replace this with a bottom nav */
+    }
+
+    .homepage {
+        width: 100%;
+    }
+
+    .homepage header {
+        padding: 20px;
+        font-size: 32px;
+    }
+
+    .homepage .homepage_body {
+        padding: 15px;
+    }
+
+    /* Panels & Padding */
+    .post .panel_body,
+    .user_profile .profile_info,
+    .sitesettings .panel_body,
+    .usersettings .panel_body {
+        padding: 20px 15px;
+    }
+
+    .panel .panel_header .info p {
+        font-size: 22px;
+    }
+
+    /* Stack Horizontal Elements */
+    .sitesettings .panel_body {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .sitesettings .option {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        border-radius: 20px;
+        padding: 15px;
+    }
+
+    .sitesettings .option .optionPicker {
+        width: 100%;
+    }
+
+    /* Fix User Settings Buttons */
+    .usersettings .useractions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .usersettings .useractions button {
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .usersettings .user {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .usersettings .user .pfp {
+        width: 40%;
+    }
+
+    .usersettings .user .userinfo {
+        width: 100%;
+    }
+
+    /* Profile Banner */
+    .user_profile .profile_banner {
+        height: 150px;
+    }
+
+    .user_profile .profile_banner .pfp {
+        width: 30%;
+        margin-bottom: -30px;
+    }
+
+    .user_profile .profile_info h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+}

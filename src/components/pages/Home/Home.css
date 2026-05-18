@@ -1,0 +1,109 @@
+.home_heading {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+    font-family: 'Chewy', sans-serif;
+    font-size: 28px;
+    color: var(--headersColor);
+    text-align: left;
+}
+
+
+.homepage_body .areas {
+    width: 100%;
+    margin-top: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.homepage_body .areas>a,
+.homepage_body .areas>button {
+    flex: 1;
+    display: block;
+
+    text-decoration: none;
+}
+
+.homepage_body .areas button {
+    background-color: var(--btnColor);
+    width: 100%;
+    padding: 18px 30px;
+    border: 3px solid var(--btnBorderColor);
+    border-radius: 50px;
+    outline: none;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.03);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Chewy", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--btntextColor);
+
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.homepage_body .areas button:hover {
+    background-color: var(--btnHoverColor);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.06);
+
+    transform: translateY(-3px);
+}
+
+.homepage_body .areas button i {
+    font-size: 24px;
+}
+
+.home_modal_content {
+    background-color: var(--barColor);
+    padding: 40px;
+    border-radius: 40px;
+    border: 4px solid var(--btnColor);
+}
+
+.home_modal_title {
+    margin: 0;
+
+    font-family: 'Chewy', cursive;
+    font-size: 32px;
+    color: var(--headersColor);
+}
+
+.home_modal_desc {
+    margin: 20px 0;
+
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--textColor);
+}
+
+.home_modal_actions {
+    justify-content: center;
+}
+
+.home_modal_save_btn {
+    background-color: var(--btnColor);
+    padding: 10px 30px;
+    border: none;
+    border-radius: 50px;
+
+    font-weight: bold;
+    color: var(--btntextColor);
+}
+
+@media (max-width: 768px) {
+    .homepage_body .areas {
+        flex-direction: column;
+    }
+
+    .homepage_body .areas button {
+        font-size: 18px;
+        padding: 14px 20px;
+    }
+}
