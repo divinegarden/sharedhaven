@@ -56,12 +56,14 @@ function UserProfile() {
         name: user?.name,
         pfp: user?.pfp,
         banner: user?.banner,
-        role: user?.role
+        role: user?.role,
+        description: user?.description
     } : {
         name: profileData?.name,
         pfp: profileData?.image,
         banner: "/tempuser/temporary_banner.png", // Default banner for others
-        role: profileData?.role
+        role: profileData?.role,
+        description: profileData?.description
     };
 
     // Load active profile posts from PostgreSQL
@@ -132,7 +134,7 @@ function UserProfile() {
                     </div>
                     <div className="profile_info">
                         <h1>@{activeUser.name}</h1>
-                        <p className="profile_description">{t('description')}</p>
+                        <p className="profile_description">{activeUser.description || t('description')}</p>
                         {isOwnProfile && (
                             <div className="profile_options">
                                 <NavLink to="/settings">
