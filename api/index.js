@@ -156,7 +156,7 @@ app.post('/api/auth/login', async (req, res) => {
             theme: user.theme || "default",
             language: user.language || "Español",
             pfp: user.image || "/tempuser/temporary_pfp.png",
-            banner: "/tempuser/temporary_banner.png",
+            banner: user.banner || "/tempuser/temporary_banner.png",
             description: user.description || ""
         })
     } catch (e) {
@@ -190,7 +190,7 @@ app.post('/api/auth/register', async (req, res) => {
             theme: newUser.theme || "default",
             language: newUser.language || "Español",
             pfp: newUser.image || "/tempuser/temporary_pfp.png",
-            banner: "/tempuser/temporary_banner.png",
+            banner: newUser.banner || "/tempuser/temporary_banner.png",
             description: newUser.description || ""
         })
     } catch (e) {
