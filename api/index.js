@@ -60,7 +60,7 @@ app.use(async (req, res, next) => {
 app.get('/api/users', async (req, res) => {
     try {
         const users = await prisma.user.findMany({
-            select: { id: true, name: true, role: true, image: true, active: true }
+            select: { id: true, name: true, role: true, image: true, banner: true, description: true, active: true }
         })
         res.json(users)
     } catch (e) {

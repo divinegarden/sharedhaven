@@ -61,7 +61,7 @@ function UserProfile() {
     } : {
         name: profileData?.name,
         pfp: profileData?.image,
-        banner: "/tempuser/temporary_banner.png", // Default banner for others
+        banner: profileData?.banner || "/tempuser/temporary_banner.png",
         role: profileData?.role,
         description: profileData?.description
     };
