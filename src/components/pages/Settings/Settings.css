@@ -676,6 +676,41 @@
     cursor: pointer;
 }
 
+.url_input_row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.url_input_row input {
+    flex: 1;
+}
+
+.url_crop_btn {
+    background: var(--btnColor);
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 2px solid var(--btnBorderColor);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--btntextColor);
+    font-size: 14px;
+
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.url_crop_btn:hover {
+    transform: scale(1.12);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
 .settings_logout_btn {
     background-color: #ff4d4d;
     border: none;

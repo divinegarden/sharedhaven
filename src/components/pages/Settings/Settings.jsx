@@ -4,6 +4,7 @@ import { useConfig } from "../../contexts/config";
 import Header from "../../pieces/Header";
 import Panel from "../../pieces/Panel";
 import CustomSelect from "../../pieces/CustomSelect";
+import ImageCropper from "../../pieces/ImageCropper";
 import { apiGetUsers, apiCreateUser, apiUpdateUserProfile } from "../../../lib/api";
 import "./Settings.css";
 
@@ -20,6 +21,7 @@ function Settings() {
     // UI State
     const [notification, setNotification] = useState(null);
     const [modal, setModal] = useState({ isOpen: false, isClosing: false, field: "", value: "", value2: "" });
+    const [cropTarget, setCropTarget] = useState(null); // { src, aspectW, aspectH, outputW, outputH, label, field }
 
     // Admin State Management
     const [usersList, setUsersList] = useState([]);
@@ -102,20 +104,70 @@ function Settings() {
     };
 
     /**
-     * Handles file input changes and converts files to base64 strings.
+     * Handles file input changes — opens the ImageCropper instead of writing directly.
      */
     const handleFileChange = (e, targetField) => {
         const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                if (targetField === "pfp") {
-                    setModal(prev => ({ ...prev, value: reader.result }));
-                } else {
-                    setModal(prev => ({ ...prev, value2: reader.result }));
-                }
-            };
-            reader.readAsDataURL(file);
+        // Reset input so selecting the same file again still fires onChange
+        e.target.value = "";
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            if (targetField === "pfp") {
+                setCropTarget({
+                    src: reader.result,
+                    aspectW: 1, aspectH: 1,
+                    outputW: 400, outputH: 400,
+                    label: t('profile_picture') || "Profile Picture",
+                    field: "pfp"
+                });
+            } else {
+                setCropTarget({
+                    src: reader.result,
+                    aspectW: 5, aspectH: 1,
+                    outputW: 1200, outputH: 240,
+                    label: t('banner') || "Banner",
+                    field: "banner"
+                });
+            }
+        };
+        reader.readAsDataURL(file);
+    };
+
+    /**
+     * Called when the user confirms a crop. Writes the result back into modal state.
+     */
+    const handleCropApply = (base64) => {
+        if (!cropTarget) return;
+        if (cropTarget.field === "pfp") {
+            setModal(prev => ({ ...prev, value: base64 }));
+        } else {
+            setModal(prev => ({ ...prev, value2: base64 }));
+        }
+        setCropTarget(null);
+    };
+
+    /**
+     * Opens the cropper for a URL-based image.
+     */
+    const openCropperForUrl = (url, field) => {
+        if (!url || url.startsWith("data:")) return;
+        if (field === "pfp") {
+            setCropTarget({
+                src: url,
+                aspectW: 1, aspectH: 1,
+                outputW: 400, outputH: 400,
+                label: t('profile_picture') || "Profile Picture",
+                field: "pfp"
+            });
+        } else {
+            setCropTarget({
+                src: url,
+                aspectW: 5, aspectH: 1,
+                outputW: 1200, outputH: 240,
+                label: t('banner') || "Banner",
+                field: "banner"
+            });
         }
     };
 
@@ -174,6 +226,19 @@ function Settings() {
                     </div>
                 )}
 
+                {cropTarget && (
+                    <ImageCropper
+                        src={cropTarget.src}
+                        aspectW={cropTarget.aspectW}
+                        aspectH={cropTarget.aspectH}
+                        outputW={cropTarget.outputW}
+                        outputH={cropTarget.outputH}
+                        label={cropTarget.label}
+                        onCrop={handleCropApply}
+                        onCancel={() => setCropTarget(null)}
+                    />
+                )}
+
                 {modal.isOpen && (
                     <div className={`modal_overlay ${modal.isClosing ? 'closing' : ''}`}>
                         <div className={`modal_content ${modal.isClosing ? 'closing' : ''}`}>
@@ -183,15 +248,26 @@ function Settings() {
                                 <div className="settings_images_modal_body" onClick={(e) => e.stopPropagation()}>
                                     <div className="file_input_group">
                                         <p>{t('profile_picture')}</p>
-                                        <input 
-                                            type="text" 
-                                            value={modal.value.startsWith("data:") ? t('image_loaded') : modal.value} 
-                                            onChange={(e) => setModal({ ...modal, value: e.target.value })}
-                                            placeholder="URL"
-                                        />
+                                        <div className="url_input_row">
+                                            <input 
+                                                type="text" 
+                                                value={(modal.value || "").startsWith("data:") ? t('image_loaded') : (modal.value || "")} 
+                                                onChange={(e) => setModal({ ...modal, value: e.target.value })}
+                                                placeholder="URL"
+                                            />
+                                            {modal.value && !(modal.value || "").startsWith("data:") && (
+                                                <button
+                                                    className="url_crop_btn"
+                                                    title="Crop this image"
+                                                    onClick={() => openCropperForUrl(modal.value, "pfp")}
+                                                >
+                                                    <i className="fa-solid fa-crop-simple"></i>
+                                                </button>
+                                            )}
+                                        </div>
                                         <div className="settings_upload_hint">{t('upload_file')}</div>
                                         <label className="file_label">
-                                            {modal.value.startsWith("data:") ? t('file_selected') : t('choose_file')}
+                                            {(modal.value || "").startsWith("data:") ? t('file_selected') : t('choose_file')}
                                             <input 
                                                 type="file" 
                                                 accept="image/*"
@@ -204,15 +280,26 @@ function Settings() {
 
                                     <div className="file_input_group">
                                         <p>{t('banner')}</p>
-                                        <input 
-                                            type="text" 
-                                            value={modal.value2.startsWith("data:") ? t('image_loaded') : modal.value2} 
-                                            onChange={(e) => setModal({ ...modal, value2: e.target.value })}
-                                            placeholder="URL"
-                                        />
+                                        <div className="url_input_row">
+                                            <input 
+                                                type="text" 
+                                                value={(modal.value2 || "").startsWith("data:") ? t('image_loaded') : (modal.value2 || "")} 
+                                                onChange={(e) => setModal({ ...modal, value2: e.target.value })}
+                                                placeholder="URL"
+                                            />
+                                            {modal.value2 && !(modal.value2 || "").startsWith("data:") && (
+                                                <button
+                                                    className="url_crop_btn"
+                                                    title="Crop this image"
+                                                    onClick={() => openCropperForUrl(modal.value2, "banner")}
+                                                >
+                                                    <i className="fa-solid fa-crop-simple"></i>
+                                                </button>
+                                            )}
+                                        </div>
                                         <div className="settings_upload_hint">{t('upload_file')}</div>
                                         <label className="file_label">
-                                            {modal.value2.startsWith("data:") ? t('file_selected') : t('choose_file')}
+                                            {(modal.value2 || "").startsWith("data:") ? t('file_selected') : t('choose_file')}
                                             <input 
                                                 type="file" 
                                                 accept="image/*"
