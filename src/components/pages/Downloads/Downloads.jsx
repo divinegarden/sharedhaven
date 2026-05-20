@@ -209,7 +209,7 @@ function Downloads() {
                                     </button>
                                 )}
                             </div>
-                            <a href={item.fileUrl} download className="download_btn">
+                            <a href={item.fileUrl} download={item.title} className="download_btn">
                                 <i className="fa-solid fa-download"></i> {t('download') || "Download"}
                             </a>
                         </div>

@@ -289,24 +289,32 @@ app.post('/api/downloads', async (req, res) => {
         const user = await prisma.user.findUnique({ where: { name: username } })
         if (!user) return sendError(res, 404, 'User not found')
 
-        // Using /tmp directory on Vercel for temporary file storage (Note: Vercel files are ephemeral)
-        // Alternatively, since Vercel is stateless, we shouldn't save files locally, but since it's a workaround for now:
-        const uploadsDir = path.join(process.cwd(), 'public', 'uploads')
-        if (!fs.existsSync(uploadsDir)) {
-            fs.mkdirSync(uploadsDir, { recursive: true })
+        let fileUrl = ''
+        try {
+            // Attempt to write the file locally if filesystem is writable
+            const uploadsDir = path.join(process.cwd(), 'public', 'uploads')
+            if (!fs.existsSync(uploadsDir)) {
+                fs.mkdirSync(uploadsDir, { recursive: true })
+            }
+
+            const matches = base64.match(/^data:(.+);base64,(.+)$/)
+            if (!matches || matches.length !== 3) {
+                return sendError(res, 400, 'Invalid base64 format')
+            }
+            
+            const fileData = matches[2]
+            const buffer = Buffer.from(fileData, 'base64')
+            const safeTitle = title.replace(/[^a-zA-Z0-9.\-_ ]/g, '_')
+            const fileName = `${Date.now()}-${safeTitle}`
+            const filePath = path.join(uploadsDir, fileName)
+
+            fs.writeFileSync(filePath, buffer)
+            fileUrl = `/uploads/${fileName}`
+        } catch (err) {
+            console.warn('Filesystem write failed, falling back to storing base64 in DB:', err.message)
+            // Fallback: save the complete base64 data URL in the database
+            fileUrl = base64
         }
-
-        const matches = base64.match(/^data:(.+);base64,(.+)$/)
-        if (!matches || matches.length !== 3) return sendError(res, 400, 'Invalid base64 format')
-        
-        const fileData = matches[2]
-        const buffer = Buffer.from(fileData, 'base64')
-        const safeTitle = title.replace(/[^a-zA-Z0-9.\-_ ]/g, '_')
-        const fileName = `${Date.now()}-${safeTitle}`
-        const filePath = path.join(uploadsDir, fileName)
-
-        fs.writeFileSync(filePath, buffer)
-        const fileUrl = `/uploads/${fileName}`
 
         const newDownload = await prisma.downloadItem.create({
             data: { title, description: description || null, fileUrl, userId: user.id },
@@ -321,7 +329,7 @@ app.delete('/api/downloads/:id', async (req, res) => {
     try {
         const { id } = req.params
         const item = await prisma.downloadItem.findUnique({ where: { id } })
-        if (item && item.fileUrl) {
+        if (item && item.fileUrl && !item.fileUrl.startsWith('data:')) {
             const filePath = path.join(process.cwd(), 'public', item.fileUrl)
             if (fs.existsSync(filePath)) fs.unlinkSync(filePath)
         }
