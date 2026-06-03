@@ -259,3 +259,19 @@ export async function apiDeleteDownload(id) {
     if (!res.ok) throw new Error('Failed to delete download');
     return res.json();
 }
+
+/**
+ * Toggles a user follow.
+ */
+export async function apiFollowUser(currentUsername, targetUsername) {
+    const res = await fetch('/api/users/follow', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ currentUsername, targetUsername })
+    });
+    if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Failed to follow user');
+    }
+    return res.json();
+}

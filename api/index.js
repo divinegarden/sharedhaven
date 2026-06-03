@@ -60,7 +60,11 @@ app.use(async (req, res, next) => {
 app.get('/api/users', async (req, res) => {
     try {
         const users = await prisma.user.findMany({
-            select: { id: true, name: true, role: true, image: true, banner: true, description: true, active: true }
+            select: { 
+                id: true, name: true, role: true, image: true, banner: true, description: true, active: true,
+                followers: { select: { id: true, name: true, image: true, description: true } },
+                following: { select: { id: true, name: true, image: true, description: true } }
+            }
         })
         res.json(users)
     } catch (e) {
@@ -88,6 +92,36 @@ app.post('/api/users', async (req, res) => {
             }
         })
         res.json(newUser)
+    } catch (e) {
+        sendError(res, 400, e.message)
+    }
+})
+
+// POST /api/users/follow
+app.post('/api/users/follow', async (req, res) => {
+    try {
+        const { currentUsername, targetUsername } = req.body
+        if (!currentUsername || !targetUsername) return sendError(res, 400, 'Both usernames required')
+        if (currentUsername === targetUsername) return sendError(res, 400, 'Cannot follow yourself')
+
+        const currentUser = await prisma.user.findUnique({ where: { name: currentUsername }, include: { following: true } })
+        const targetUser = await prisma.user.findUnique({ where: { name: targetUsername } })
+        
+        if (!currentUser || !targetUser) return sendError(res, 404, 'User not found')
+
+        const isFollowing = currentUser.following.some(u => u.name === targetUsername)
+        if (isFollowing) {
+            await prisma.user.update({
+                where: { name: currentUsername },
+                data: { following: { disconnect: { name: targetUsername } } }
+            })
+        } else {
+            await prisma.user.update({
+                where: { name: currentUsername },
+                data: { following: { connect: { name: targetUsername } } }
+            })
+        }
+        res.json({ success: true, isFollowing: !isFollowing })
     } catch (e) {
         sendError(res, 400, e.message)
     }

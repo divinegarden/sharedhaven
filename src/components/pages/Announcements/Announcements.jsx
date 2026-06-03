@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router";
 import { useAuth } from "../../contexts/auth";
 import { useConfig } from "../../contexts/config";
 import Header from "../../pieces/Header";
@@ -100,11 +101,13 @@ function Announcements() {
                                     <i className="fa-solid fa-bullhorn"></i> Announcement
                                 </div>
                                 <div className="announcement_header">
-                                    <img src={announcement.user?.image || "/tempuser/temporary_pfp.png"} alt={announcement.user?.name} />
-                                    <div>
-                                        <h3>@{announcement.user?.name}</h3>
-                                        <span>{new Date(announcement.createdAt).toLocaleString()}</span>
-                                    </div>
+                                    <NavLink to={`/profile/${announcement.user?.name}`} style={{ display: 'flex', alignItems: 'center', gap: '15px', textDecoration: 'none', color: 'inherit' }}>
+                                        <img src={announcement.user?.image || "/tempuser/temporary_pfp.png"} alt={announcement.user?.name} />
+                                        <div>
+                                            <h3>@{announcement.user?.name}</h3>
+                                            <span>{new Date(announcement.createdAt).toLocaleString()}</span>
+                                        </div>
+                                    </NavLink>
                                     {isAdmin && (
                                         <button 
                                             className="delete_btn"

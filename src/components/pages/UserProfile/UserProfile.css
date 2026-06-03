@@ -1,3 +1,6 @@
+/* =========================================================
+   General State Indicators
+   ========================================================= */
 .profile_loading_text,
 .profile_not_found_text {
     opacity: 0.6;
@@ -16,13 +19,130 @@
 
 .profile_return_home {
     display: block;
-
     text-align: center;
     color: var(--btnColor);
     font-weight: bold;
     text-decoration: none;
 }
 
+/* =========================================================
+   Profile Layout & Follow Stats
+   ========================================================= */
+.profile_follows {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.follows_stat {
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    color: var(--textColor);
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.follows_stat:hover {
+    opacity: 1;
+}
+
+.profile_actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* =========================================================
+   Follow/Unfollow Buttons
+   ========================================================= */
+.btn_follow,
+.btn_unfollow {
+    padding: 4px 10px;
+    border: 2px solid var(--btnBorderColor);
+    border-radius: 50px;
+    outline: none;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 16px; /* Note: Reduced size in previous iterations, kept slightly larger for readability */
+    cursor: pointer;
+    transition: .5s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.btn_follow {
+    background-color: var(--btnColor);
+    color: var(--btntextColor);
+}
+
+.btn_follow:hover {
+    background-color: var(--btnHoverColor);
+    color: var(--btntextHoverColor);
+    font-weight: 700;
+    scale: 1.02;
+}
+
+.btn_unfollow {
+    background-color: transparent;
+    color: var(--btnColor);
+}
+
+.btn_unfollow:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+    font-weight: 700;
+    scale: 1.02;
+}
+
+/* =========================================================
+   Follows Modal List
+   ========================================================= */
+.follows_list {
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.follows_item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--barColor);
+    border: 1px solid var(--btnBorderColor);
+    text-decoration: none;
+    color: var(--textColor);
+    transition: transform 0.2s ease;
+}
+
+.follows_item:hover {
+    transform: scale(1.02);
+}
+
+.follows_item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.follows_item span {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+}
+
+/* =========================================================
+   User Posts Feed
+   ========================================================= */
 .profile_section_title {
     width: 100%;
     margin-top: 40px;
@@ -75,15 +195,12 @@
     border: 3px solid var(--btnBorderColor);
 
     text-align: center;
-
     opacity: 0.6;
 }
 
 .profile_no_posts i {
     margin-bottom: 10px;
-
     display: block;
-
     font-size: 40px;
     color: var(--btnColor);
 }

@@ -26,6 +26,8 @@ model User {
   likedPosts    Post[]          @relation("UserLikedPosts")
   likedMedia    FavoriteMedia[]
   agendaEvents  AgendaEvent[]
+  followers     User[]         @relation("UserFollows")
+  following     User[]         @relation("UserFollows")
 }
 
 model Account {

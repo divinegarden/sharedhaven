@@ -34,6 +34,7 @@ function LikedPosts() {
                             title={post.username} 
                             image={post.id.startsWith("user-post-") ? user?.pfp : post.userPfp} 
                             className="post"
+                            titleLink={`/profile/${post.username}`}
                         >
                             {post.image && (
                                 <img src={post.image} alt="Post media" className="post_image" />
